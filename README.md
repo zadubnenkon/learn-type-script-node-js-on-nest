@@ -38,6 +38,7 @@ $ npm run start:dev
 Также есть возможность развернуть приложение с помощью Docker Composer.  
 
 Для успешного запуска необходимо:
+- установить Docker на устройство;
 - установить модули node.js;
 - заменить ```POSTGRES_HOST=localhost``` на ```POSTGRES_HOST=postgres``` в .env файлах;
 - указать свой пароль базы данных в поле ```POSTGRES_PASSWORD``` в docker-compose.yml;
