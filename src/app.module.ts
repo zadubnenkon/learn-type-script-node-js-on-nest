@@ -25,7 +25,7 @@ import * as path from 'path';
         }),
         SequelizeModule.forRoot({
             dialect: 'postgres',
-            host: 'ec2-52-49-68-244.eu-west-1.compute.amazonaws.com',
+            host: process.env.POSTGRES_HOST,
             port: Number(process.env.POSTGRESS_PORT),
             username: process.env.POSTGRES_USER,
             password: process.env.POSTGRESS_PASSWORD,
