@@ -31,7 +31,8 @@ import * as path from 'path';
             password: process.env.POSTGRESS_PASSWORD,
             database: process.env.POSTGRES_DB,
             models: [User, Role, UserRoles, Post],
-            autoLoadModels: true
+            autoLoadModels: true,
+            ssl: true
         }),
         UsersModule,
         RolesModule,
