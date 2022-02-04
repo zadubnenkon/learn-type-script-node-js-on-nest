@@ -32,9 +32,10 @@ import * as path from 'path';
             database: process.env.POSTGRES_DB,
             models: [User, Role, UserRoles, Post],
             autoLoadModels: true,
-            ssl: true,
             "dialectOptions": {
-                "ssl": true
+                "ssl": {
+                    require: true,
+                    rejectUnauthorized: false
               }
         }),
         UsersModule,
