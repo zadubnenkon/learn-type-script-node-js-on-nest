@@ -36,6 +36,7 @@ import * as path from 'path';
                 "ssl": {
                     require: true,
                     rejectUnauthorized: false
+                }
               }
         }),
         UsersModule,
