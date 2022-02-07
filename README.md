@@ -14,6 +14,7 @@ $ npm install
 Для работы приложения на устройстве должна быть БД PostgreSQL с созданной таблицей **nest-course** под пользователем **postgres** и паролем **root**.  
 Можно использовать свои значения, но нужно будет изменить POSTGRES_* поля в .env файлах:
 ```
+PORT=7000
 POSTGRES_HOST=localhost
 POSTGRES_USER=postgres
 POSTGRES_DB=nest-course
@@ -21,15 +22,32 @@ POSTGRESS_PASSWORD=root
 POSTGRESS_PORT=5432
 ```
 
+Для запуска на localhost возможно понадобится убрать параметры ssl из настроек подключения к БД.  
+Эти настройки находятся в файле app.module.ts, в объекте, который передаётся в SequelizeModule.forRoot():
+```js
+{
+  dialect: 'postgres',
+  host: process.env.POSTGRES_HOST,
+  port: Number(process.env.POSTGRESS_PORT),
+  username: process.env.POSTGRES_USER,
+  password: process.env.POSTGRESS_PASSWORD,
+  database: process.env.POSTGRES_DB,
+  models: [User, Role, UserRoles, Post],
+  autoLoadModels: true,
+  dialectOptions: {// Удаляем это свойство
+    ssl: {
+      require: true,
+      rejectUnauthorized: false
+    }
+  }
+}
+```
+
 ## Запуск приложение
 ```bash
 # product
 # localhost:7000
 $ npm start
-
-# watch mode
-# localhost:5000
-$ npm run start:dev
 ```
 
 Описание методов с примерами работы находится в документации SwaggerUi, которая доступна по пути */api/docs*.

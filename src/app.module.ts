@@ -32,8 +32,8 @@ import * as path from 'path';
             database: process.env.POSTGRES_DB,
             models: [User, Role, UserRoles, Post],
             autoLoadModels: true,
-            "dialectOptions": {
-                "ssl": {
+            dialectOptions: {
+                ssl: {
                     require: true,
                     rejectUnauthorized: false
                 }
