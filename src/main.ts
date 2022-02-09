@@ -14,6 +14,7 @@ async function start() {
         .setDescription('Документация REST API')
         .setVersion('1.0.0')
         .addTag('ULBI TV')
+        .addBearerAuth()
         .build()
     const document = SwaggerModule.createDocument(app, config);
     SwaggerModule.setup('/api/docs', app, document)
